@@ -18,11 +18,11 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: #0F1216;
+            background: #0d1117;
             position: relative;
         }
 
-        /* Dark background with subtle radial vignette */
+        /* Dark background with subtle blue-teal undertone and softer vignette */
         body::before {
             content: '';
             position: absolute;
@@ -30,11 +30,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at center, #1A1D23 0%, #0F1216 60%);
+            background: radial-gradient(ellipse at center, #151c24 0%, #0d1117 70%);
             z-index: 0;
         }
 
-        /* Starfield sparkles */
+        /* Scattered particle dots (starfield) */
         body::after {
             content: '';
             position: absolute;
@@ -43,35 +43,37 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(1px 1px at 20% 30%, rgba(255, 255, 255, 0.06), transparent),
-                radial-gradient(1px 1px at 60% 70%, rgba(255, 255, 255, 0.04), transparent),
-                radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.03), transparent),
-                radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.05), transparent),
-                radial-gradient(1px 1px at 90% 60%, rgba(255, 255, 255, 0.04), transparent),
-                radial-gradient(1px 1px at 33% 80%, rgba(255, 255, 255, 0.03), transparent);
+                radial-gradient(1px 1px at 15% 25%, rgba(180, 190, 200, 0.08), transparent),
+                radial-gradient(1px 1px at 60% 65%, rgba(180, 190, 200, 0.06), transparent),
+                radial-gradient(1px 1px at 45% 40%, rgba(180, 190, 200, 0.05), transparent),
+                radial-gradient(1px 1px at 80% 15%, rgba(180, 190, 200, 0.07), transparent),
+                radial-gradient(1px 1px at 88% 70%, rgba(180, 190, 200, 0.05), transparent),
+                radial-gradient(1px 1px at 30% 85%, rgba(180, 190, 200, 0.04), transparent),
+                radial-gradient(1px 1px at 20% 50%, rgba(180, 190, 200, 0.06), transparent),
+                radial-gradient(1px 1px at 70% 30%, rgba(180, 190, 200, 0.05), transparent);
             background-size: 100% 100%;
             z-index: 0;
-        }
-
-        /* Circuit board pattern - top right */
-        .circuit-top {
-            position: absolute;
-            top: 10%;
-            right: 10%;
-            width: 200px;
-            height: 200px;
-            opacity: 0.12;
-            z-index: 1;
         }
 
         /* Circuit board pattern - bottom left */
         .circuit-bottom {
             position: absolute;
-            bottom: 10%;
-            left: 8%;
-            width: 150px;
-            height: 150px;
-            opacity: 0.08;
+            bottom: 8%;
+            left: 5%;
+            width: 200px;
+            height: 200px;
+            opacity: 0.18;
+            z-index: 1;
+        }
+
+        /* Circuit board pattern - top right */
+        .circuit-top {
+            position: absolute;
+            top: 6%;
+            right: 8%;
+            width: 250px;
+            height: 250px;
+            opacity: 0.15;
             z-index: 1;
         }
 
@@ -81,14 +83,14 @@
             z-index: 10;
         }
 
-        /* SVG container with proper sizing */
+        /* SVG wrapper with subtle cool glow */
         .svg-wrapper {
             position: relative;
             width: 800px;
             filter: 
-                drop-shadow(0 0 30px rgba(232, 148, 74, 0.2))
-                drop-shadow(0 0 50px rgba(155, 140, 184, 0.15))
-                drop-shadow(0 0 70px rgba(90, 106, 158, 0.12));
+                drop-shadow(0 0 20px rgba(155, 140, 184, 0.08))
+                drop-shadow(0 0 35px rgba(90, 106, 158, 0.06))
+                drop-shadow(0 0 50px rgba(120, 130, 150, 0.04));
         }
 
         svg {
@@ -97,61 +99,92 @@
             display: block;
         }
 
-        /* Gradient for the text */
+        /* Text with desaturated gradient and glass effect */
         svg path {
             fill: url(#textGradient);
-            opacity: 0.92;
+            opacity: 0.85;
+            filter: 
+                drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4))
+                drop-shadow(0 0 1px rgba(255, 255, 255, 0.15));
         }
 
-        /* Flame icon - SMALL and positioned correctly */
+        /* Flame icon - SMALLER, warm orange */
         .flame-icon {
             position: absolute;
-            top: 18%;
-            left: 19.2%;
-            width: 16px;
-            height: 22px;
+            top: 18.5%;
+            left: 19.1%;
+            width: 11px;
+            height: 15px;
             filter: 
-                drop-shadow(0 0 8px rgba(255, 150, 50, 0.6))
-                drop-shadow(0 0 15px rgba(255, 120, 30, 0.4));
+                drop-shadow(0 0 6px rgba(255, 140, 50, 0.7))
+                drop-shadow(0 0 12px rgba(255, 110, 30, 0.4));
             z-index: 15;
         }
     </style>
 </head>
 <body>
-    <!-- Circuit board patterns -->
-    <svg class="circuit-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <!-- Circuit board pattern - bottom left -->
+    <svg class="circuit-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
         <defs>
             <style>
                 .circuit-line { 
-                    stroke: #3A4050; 
-                    stroke-width: 1; 
+                    stroke: #5a6a7e; 
+                    stroke-width: 0.8; 
                     fill: none; 
                     stroke-linecap: round;
                 }
                 .circuit-node { 
-                    fill: #3A4050; 
+                    fill: #5a6a7e; 
                 }
             </style>
         </defs>
-        <path class="circuit-line" d="M 40,15 L 120,15 L 120,60"/>
-        <path class="circuit-line" d="M 120,15 L 160,15"/>
-        <path class="circuit-line" d="M 60,40 L 60,80 L 30,80"/>
-        <path class="circuit-line" d="M 150,35 L 150,90 L 180,90"/>
-        <circle class="circuit-node" cx="40" cy="15" r="2.5"/>
-        <circle class="circuit-node" cx="120" cy="15" r="2.5"/>
-        <circle class="circuit-node" cx="120" cy="60" r="2.5"/>
-        <circle class="circuit-node" cx="60" cy="40" r="2.5"/>
-        <rect class="circuit-node" x="158" y="13" width="3" height="3" transform="rotate(45 160 15)"/>
-        <rect class="circuit-node" x="28" y="78" width="3" height="3" transform="rotate(45 30 80)"/>
+        <!-- Diagonal PCB traces bottom-left -->
+        <path class="circuit-line" d="M 20,160 L 70,160 L 70,110 L 40,110"/>
+        <path class="circuit-line" d="M 70,160 L 120,160 L 120,130"/>
+        <path class="circuit-line" d="M 45,135 L 45,100 L 15,100"/>
+        <path class="circuit-line" d="M 95,180 L 95,145 L 145,145"/>
+        <circle class="circuit-node" cx="20" cy="160" r="2.5"/>
+        <circle class="circuit-node" cx="70" cy="160" r="2.5"/>
+        <circle class="circuit-node" cx="70" cy="110" r="2.5"/>
+        <circle class="circuit-node" cx="45" cy="135" r="2.5"/>
+        <circle class="circuit-node" cx="95" cy="180" r="2.5"/>
+        <rect class="circuit-node" x="118" y="128" width="3" height="3" transform="rotate(45 120 130)"/>
+        <rect class="circuit-node" x="13" y="98" width="3" height="3" transform="rotate(45 15 100)"/>
+        <rect class="circuit-node" x="143" y="143" width="3" height="3" transform="rotate(45 145 145)"/>
     </svg>
 
-    <svg class="circuit-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
-        <path class="circuit-line" d="M 25,120 L 80,120 L 80,70"/>
-        <path class="circuit-line" d="M 80,120 L 130,120"/>
-        <path class="circuit-line" d="M 50,95 L 50,60 L 20,60"/>
-        <circle class="circuit-node" cx="25" cy="120" r="2"/>
-        <circle class="circuit-node" cx="80" cy="120" r="2"/>
-        <circle class="circuit-node" cx="50" cy="95" r="2"/>
+    <!-- Circuit board pattern - top right -->
+    <svg class="circuit-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250">
+        <defs>
+            <style>
+                .circuit-line-t { 
+                    stroke: #5a6a7e; 
+                    stroke-width: 0.8; 
+                    fill: none; 
+                    stroke-linecap: round;
+                }
+                .circuit-node-t { 
+                    fill: #5a6a7e; 
+                }
+            </style>
+        </defs>
+        <!-- Diagonal PCB traces top-right -->
+        <path class="circuit-line-t" d="M 40,20 L 130,20 L 130,70"/>
+        <path class="circuit-line-t" d="M 130,20 L 190,20 L 190,50"/>
+        <path class="circuit-line-t" d="M 70,45 L 70,95 L 30,95"/>
+        <path class="circuit-line-t" d="M 160,45 L 160,110 L 210,110"/>
+        <path class="circuit-line-t" d="M 100,10 L 100,50 L 140,50"/>
+        <circle class="circuit-node-t" cx="40" cy="20" r="2.5"/>
+        <circle class="circuit-node-t" cx="130" cy="20" r="2.5"/>
+        <circle class="circuit-node-t" cx="130" cy="70" r="2.5"/>
+        <circle class="circuit-node-t" cx="190" cy="20" r="2.5"/>
+        <circle class="circuit-node-t" cx="70" cy="45" r="2.5"/>
+        <circle class="circuit-node-t" cx="160" cy="45" r="2.5"/>
+        <circle class="circuit-node-t" cx="100" cy="10" r="2.5"/>
+        <rect class="circuit-node-t" x="28" y="93" width="3" height="3" transform="rotate(45 30 95)"/>
+        <rect class="circuit-node-t" x="188" y="48" width="3" height="3" transform="rotate(45 190 50)"/>
+        <rect class="circuit-node-t" x="208" y="108" width="3" height="3" transform="rotate(45 210 110)"/>
+        <rect class="circuit-node-t" x="138" y="48" width="3" height="3" transform="rotate(45 140 50)"/>
     </svg>
 
     <!-- Logo -->
@@ -163,14 +196,28 @@
                preserveAspectRatio="xMidYMid meet"
                xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <!-- Warm-to-cool gradient -->
+                <!-- Desaturated warm-to-cool gradient with earlier purple transition -->
                 <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#E8944A;stop-opacity:0.9" />
-                  <stop offset="25%" style="stop-color:#D4793E;stop-opacity:0.88" />
-                  <stop offset="50%" style="stop-color:#9B8CB8;stop-opacity:0.86" />
-                  <stop offset="75%" style="stop-color:#8878A8;stop-opacity:0.85" />
-                  <stop offset="100%" style="stop-color:#5A6A9E;stop-opacity:0.84" />
+                  <stop offset="0%" style="stop-color:#d4885c;stop-opacity:0.82" />
+                  <stop offset="20%" style="stop-color:#c27d58;stop-opacity:0.80" />
+                  <stop offset="40%" style="stop-color:#a586a0;stop-opacity:0.78" />
+                  <stop offset="60%" style="stop-color:#8b7a9e;stop-opacity:0.77" />
+                  <stop offset="80%" style="stop-color:#6d7a94;stop-opacity:0.76" />
+                  <stop offset="100%" style="stop-color:#5a6a8e;stop-opacity:0.75" />
                 </linearGradient>
+
+                <!-- Inner glow for glass effect -->
+                <filter id="glassEffect">
+                  <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+                  <feOffset dx="0" dy="1" result="offsetblur"/>
+                  <feComponentTransfer>
+                    <feFuncA type="linear" slope="0.3"/>
+                  </feComponentTransfer>
+                  <feMerge>
+                    <feMergeNode/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
               </defs>
               
               <g transform="translate(-219.000000,497.101783) scale(0.100000,-0.100000)">
@@ -189,18 +236,18 @@
               </g>
             </svg>
 
-            <!-- Flame icon positioned above "i" dot -->
+            <!-- Flame icon - smaller, warm orange gradient -->
             <div class="flame-icon">
                 <svg viewBox="0 0 20 28" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="flameGrad" x1="50%" y1="100%" x2="50%" y2="0%">
-                            <stop offset="0%" style="stop-color:#D4793E;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#E8944A;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#FFB85F;stop-opacity:1" />
+                            <stop offset="0%" style="stop-color:#d4793e;stop-opacity:1" />
+                            <stop offset="40%" style="stop-color:#e88c4a;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ffdb7f;stop-opacity:1" />
                         </linearGradient>
                     </defs>
                     <path fill="url(#flameGrad)" d="M10,2 C10,2 6,8 6,14 C6,19 8,24 10,24 C12,24 14,19 14,14 C14,8 10,2 10,2 Z"/>
-                    <path fill="rgba(255,200,100,0.3)" d="M10,8 C10,8 8.5,11 8.5,14 C8.5,16.5 9,18 10,18 C11,18 11.5,16.5 11.5,14 C11.5,11 10,8 10,8 Z"/>
+                    <path fill="rgba(255,240,180,0.4)" d="M10,8 C10,8 8.5,11 8.5,14 C8.5,16.5 9,18 10,18 C11,18 11.5,16.5 11.5,14 C11.5,11 10,8 10,8 Z"/>
                 </svg>
             </div>
         </div>
