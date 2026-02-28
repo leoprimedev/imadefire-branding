@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iMadeFire - Modern Glassmorphic Logo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #0F1216;
+            position: relative;
+        }
+
+        /* Dark background with subtle radial vignette */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #1A1D23 0%, #0F1216 60%);
+            z-index: 0;
+        }
+
+        /* Starfield sparkles */
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 20% 30%, rgba(255, 255, 255, 0.06), transparent),
+                radial-gradient(1px 1px at 60% 70%, rgba(255, 255, 255, 0.04), transparent),
+                radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.03), transparent),
+                radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.05), transparent),
+                radial-gradient(1px 1px at 90% 60%, rgba(255, 255, 255, 0.04), transparent),
+                radial-gradient(1px 1px at 33% 80%, rgba(255, 255, 255, 0.03), transparent);
+            background-size: 100% 100%;
+            z-index: 0;
+        }
+
+        /* Circuit board pattern - top right */
+        .circuit-top {
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            width: 200px;
+            height: 200px;
+            opacity: 0.12;
+            z-index: 1;
+        }
+
+        /* Circuit board pattern - bottom left */
+        .circuit-bottom {
+            position: absolute;
+            bottom: 10%;
+            left: 8%;
+            width: 150px;
+            height: 150px;
+            opacity: 0.08;
+            z-index: 1;
+        }
+
+        /* Logo container */
+        .logo-container {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* SVG container with proper sizing */
+        .svg-wrapper {
+            position: relative;
+            width: 800px;
+            filter: 
+                drop-shadow(0 0 30px rgba(232, 148, 74, 0.2))
+                drop-shadow(0 0 50px rgba(155, 140, 184, 0.15))
+                drop-shadow(0 0 70px rgba(90, 106, 158, 0.12));
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Gradient for the text */
+        svg path {
+            fill: url(#textGradient);
+            opacity: 0.92;
+        }
+
+        /* Flame icon - SMALL and positioned correctly */
+        .flame-icon {
+            position: absolute;
+            top: 18%;
+            left: 19.2%;
+            width: 16px;
+            height: 22px;
+            filter: 
+                drop-shadow(0 0 8px rgba(255, 150, 50, 0.6))
+                drop-shadow(0 0 15px rgba(255, 120, 30, 0.4));
+            z-index: 15;
+        }
+    </style>
+</head>
+<body>
+    <!-- Circuit board patterns -->
+    <svg class="circuit-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+        <defs>
+            <style>
+                .circuit-line { 
+                    stroke: #3A4050; 
+                    stroke-width: 1; 
+                    fill: none; 
+                    stroke-linecap: round;
+                }
+                .circuit-node { 
+                    fill: #3A4050; 
+                }
+            </style>
+        </defs>
+        <path class="circuit-line" d="M 40,15 L 120,15 L 120,60"/>
+        <path class="circuit-line" d="M 120,15 L 160,15"/>
+        <path class="circuit-line" d="M 60,40 L 60,80 L 30,80"/>
+        <path class="circuit-line" d="M 150,35 L 150,90 L 180,90"/>
+        <circle class="circuit-node" cx="40" cy="15" r="2.5"/>
+        <circle class="circuit-node" cx="120" cy="15" r="2.5"/>
+        <circle class="circuit-node" cx="120" cy="60" r="2.5"/>
+        <circle class="circuit-node" cx="60" cy="40" r="2.5"/>
+        <rect class="circuit-node" x="158" y="13" width="3" height="3" transform="rotate(45 160 15)"/>
+        <rect class="circuit-node" x="28" y="78" width="3" height="3" transform="rotate(45 30 80)"/>
+    </svg>
+
+    <svg class="circuit-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+        <path class="circuit-line" d="M 25,120 L 80,120 L 80,70"/>
+        <path class="circuit-line" d="M 80,120 L 130,120"/>
+        <path class="circuit-line" d="M 50,95 L 50,60 L 20,60"/>
+        <circle class="circuit-node" cx="25" cy="120" r="2"/>
+        <circle class="circuit-node" cx="80" cy="120" r="2"/>
+        <circle class="circuit-node" cx="50" cy="95" r="2"/>
+    </svg>
+
+    <!-- Logo -->
+    <div class="logo-container">
+        <div class="svg-wrapper">
+            <svg
+               version="1.0"
+               viewBox="0 0 968.823371 194.180487"
+               preserveAspectRatio="xMidYMid meet"
+               xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <!-- Warm-to-cool gradient -->
+                <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#E8944A;stop-opacity:0.9" />
+                  <stop offset="25%" style="stop-color:#D4793E;stop-opacity:0.88" />
+                  <stop offset="50%" style="stop-color:#9B8CB8;stop-opacity:0.86" />
+                  <stop offset="75%" style="stop-color:#8878A8;stop-opacity:0.85" />
+                  <stop offset="100%" style="stop-color:#5A6A9E;stop-opacity:0.84" />
+                </linearGradient>
+              </defs>
+              
+              <g transform="translate(-219.000000,497.101783) scale(0.100000,-0.100000)">
+                <path d="M9720 4922 c0 -63 -26 -109 -115 -207 -84 -92 -115 -151 -115 -222 0 -64 10 -91 51 -137 30 -35 95 -76 118 -76 6 0 -1 16 -14 36 -29 42 -33 105 -11 158 8 19 45 67 84 107 98 105 122 142 122 197 0 55 -40 132 -87 168 l-33 25 0 -49z" />
+                <path d="M9880 4676 c0 -7 -25 -41 -55 -75 -67 -75 -75 -99 -45 -141 35 -49 37 -98 5 -144 l-26 -38 28 6 c50 13 113 56 141 98 23 36 27 52 27 113 0 59 -5 83 -29 134 -28 58 -46 77 -46 47z" />
+                <path d="M2290 4599 c-63 -25 -100 -85 -100 -162 0 -97 61 -159 163 -165 52 -3 67 0 96 20 113 77 114 219 1 296 -36 24 -113 29 -160 11z" />
+                <path d="M6660 4314 l0 -276 -42 37 c-146 124 -380 137 -562 30 -63 -37 -156 -141 -194 -217 -46 -91 -62 -167 -62 -288 0 -183 45 -298 164 -416 190 -189 483 -207 662 -42 l44 41 0 -62 0 -61 135 0 135 0 0 765 0 765 -140 0 -140 0 0 -276z m-185 -425 c76 -28 109 -59 147 -136 28 -58 32 -75 32 -148 0 -73 -4 -90 -33 -149 -55 -113 -150 -164 -285 -154 -141 12 -234 110 -251 264 -15 135 45 256 154 312 78 39 151 43 236 11z" />
+                <path d="M2760 3815 l0 -755 145 0 145 0 2 492 3 492 210 -352 210 -352 40 0 40 1 210 352 210 352 3 -492 2 -493 149 0 148 0 -2 38 c-1 20 -3 360 -4 755 l-1 717 -158 0 -157 0 -112 -187 c-205 -346 -306 -518 -316 -541 -9 -20 -15 -14 -70 80 -32 57 -132 226 -220 376 l-161 272 -158 0 -158 0 0 -755z" />
+                <path d="M8426 4533 c-3 -21 -6 -361 -6 -755 l0 -718 150 0 150 0 0 295 0 295 305 0 305 0 0 140 0 140 -302 2 -303 3 -3 178 -2 177 320 0 320 0 0 140 0 140 -464 0 -463 0 -7 -37z" />
+                <path d="M4915 4174 c-113 -24 -177 -53 -247 -111 -89 -74 -144 -162 -179 -289 -28 -104 -24 -285 10 -384 73 -215 276 -360 501 -360 116 0 210 35 290 107 l50 45 0 -61 0 -61 140 0 140 0 0 545 0 546 -142 -3 -143 -3 0 -56 0 -57 -45 41 c-93 83 -254 126 -375 101z m226 -281 c65 -21 131 -83 162 -151 17 -37 21 -67 22 -137 0 -79 -4 -97 -28 -147 -65 -131 -205 -187 -356 -142 -64 19 -132 82 -163 152 -30 68 -31 208 -1 274 28 62 99 131 154 151 59 21 145 21 210 0z" />
+                <path d="M7555 4163 c-198 -42 -346 -179 -407 -378 -31 -99 -31 -262 -1 -360 46 -144 136 -257 261 -323 215 -115 519 -88 687 60 40 35 92 105 84 112 -2 1 -35 20 -74 41 -38 21 -85 48 -104 61 l-34 23 -23 -28 c-13 -15 -51 -41 -86 -57 -53 -24 -76 -28 -148 -29 -77 0 -92 3 -152 33 -68 33 -107 73 -134 137 l-14 35 392 1 c216 1 400 2 408 3 21 2 32 70 26 163 -19 267 -176 456 -422 508 -86 18 -168 18 -259 -2z m251 -257 c73 -34 119 -90 138 -168 l6 -28 -269 0 -270 0 8 28 c23 78 89 149 165 176 66 23 162 20 222 -8z" />
+                <path d="M11201 4165 c-110 -25 -187 -68 -265 -148 -123 -125 -172 -259 -163 -447 7 -161 55 -270 166 -380 98 -97 217 -147 376 -157 186 -12 329 38 442 152 34 36 63 71 63 78 0 11 -189 127 -208 127 -5 0 -19 -12 -33 -26 -13 -15 -49 -38 -79 -52 -72 -32 -189 -36 -269 -8 -66 23 -146 97 -159 147 l-8 34 405 5 406 5 3 102 c5 186 -41 309 -162 429 -103 102 -196 141 -356 149 -63 3 -116 0 -159 -10z m230 -250 c81 -28 137 -90 164 -182 l6 -23 -270 0 -270 0 9 31 c34 116 132 188 261 189 30 0 76 -7 100 -15z" />
+                <path d="M10576 4153 c-90 -27 -142 -73 -188 -163 l-17 -35 -1 98 0 97 -140 0 -140 0 0 -545 0 -545 140 0 140 0 0 258 c0 142 5 284 11 316 25 139 129 224 272 226 l57 0 0 155 0 155 -42 -1 c-24 0 -65 -7 -92 -16z" />
+                <path d="M2220 3605 l0 -545 145 0 145 0 0 508 c0 279 -3 524 -6 545 l-7 37 -138 0 -139 0 0 -545z" />
+                <path d="M9560 3605 l0 -545 140 0 140 0 0 545 0 545 -140 0 -140 0 0 -545z" />
+              </g>
+            </svg>
+
+            <!-- Flame icon positioned above "i" dot -->
+            <div class="flame-icon">
+                <svg viewBox="0 0 20 28" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="flameGrad" x1="50%" y1="100%" x2="50%" y2="0%">
+                            <stop offset="0%" style="stop-color:#D4793E;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#E8944A;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFB85F;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path fill="url(#flameGrad)" d="M10,2 C10,2 6,8 6,14 C6,19 8,24 10,24 C12,24 14,19 14,14 C14,8 10,2 10,2 Z"/>
+                    <path fill="rgba(255,200,100,0.3)" d="M10,8 C10,8 8.5,11 8.5,14 C8.5,16.5 9,18 10,18 C11,18 11.5,16.5 11.5,14 C11.5,11 10,8 10,8 Z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
